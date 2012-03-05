@@ -18,7 +18,7 @@ development:
   database: mblog_development
   pool: 5
   username: mblog
-  password:
+  password: mblog
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -44,7 +44,7 @@ test:
   database: mblog_test
   pool: 5
   username: mblog
-  password:
+  password: mblog
 
 production:
   adapter: postgresql
@@ -52,4 +52,4 @@ production:
   database: mblog_production
   pool: 5
   username: mblog
-  password:
+  password: mblog
