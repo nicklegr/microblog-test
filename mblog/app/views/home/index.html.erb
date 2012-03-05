@@ -21,3 +21,17 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Text</th>
+  </tr>
+ 
+<% @posts.each do |post| %>
+  <tr>
+    <td><%= post.user ? post.user.name : "" %></td>
+    <td><%= post.text %></td>
+  </tr>
+<% end %>
+</table>
