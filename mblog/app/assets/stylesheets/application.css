@@ -11,3 +11,17 @@
  *= require_self
  *= require_tree .
 */
+
+div.post {
+  border-top: 1px solid #EEEEEE;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+div.posted_time {
+  text-align: right;
+}
+
+span.posted_time {
+  color: #999999;
+}

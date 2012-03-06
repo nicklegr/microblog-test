@@ -1,34 +1,58 @@
-<h1>いまなにしてる？</h1>
+<style>
+  body {
+    padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+  }
+</style>
 
-<%= form_for(@post) do |f| %>
-  <% if @post.errors.any? %>
-  <div id="errorExplanation">
-    <h2><%= pluralize(@post.errors.count, "error") %> prohibited
-        this post from being saved:</h2>
-    <ul>
-    <% @post.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-  <% end %>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
 
-  <%= select("post", "user_id", User.all.collect {|p| [ p.name, p.id ] }) %>
-
-  <div class="field">
-    <%= f.text_area :text, :cols => 40, :rows => 5 %>
-  </div>
-  <div class="actions">
-    <%= f.submit :value => "送信" %>
-  </div>
-<% end %>
-
-<div class="posts">
-  <% @posts.each do |post| %>
-    <div class="post">
-      <strong>@<%= post.user ? post.user.name : "" %></strong><br />
-      <%= post.text %><br />
-      <%= post.created_at.getlocal.strftime("%Y-%m-%d %H:%M:%S") %>
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="#">microblog-test</a>
     </div>
+  </div>
+</div>
+
+<div class="container">
+  <h2>いまなにしてる？</h2>
+  <hr />
+
+  <%= form_for(@post) do |f| %>
+    <% if @post.errors.any? %>
+    <div id="errorExplanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited
+          this post from being saved:</h2>
+      <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+    <% end %>
+
+    <i class="icon-user"></i> <%= select("post", "user_id", User.all.collect {|p| [ p.name, p.id ] }) %>
+
+    <div class="field">
+      <%= f.text_area :text, :class => "span5", :rows => 5 %>
+    </div>
+
+    <a class="btn" href="#" onclick="document.forms[0].submit()">ツイート</a>
   <% end %>
+
+  <div class="posts">
+    <% @posts.each do |post| %>
+      <div class="post">
+        <strong><%= post.user ? post.user.name : "" %></strong><br />
+        <%= post.text %><br />
+        <div class="posted_time">
+          <span class="posted_time"><%= post.created_at.getlocal.strftime("%Y-%m-%d %H:%M:%S") %></span>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
