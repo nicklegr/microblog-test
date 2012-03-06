@@ -16,24 +16,19 @@
   <%= select("post", "user_id", User.all.collect {|p| [ p.name, p.id ] }) %>
 
   <div class="field">
-    <%= f.label :text %><br />
-    <%= f.text_area :text %>
+    <%= f.text_area :text, :cols => 40, :rows => 5 %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :value => "送信" %>
   </div>
 <% end %>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Text</th>
-  </tr>
- 
-<% @posts.each do |post| %>
-  <tr>
-    <td><%= post.user ? post.user.name : "" %></td>
-    <td><%= post.text %></td>
-  </tr>
-<% end %>
-</table>
+<div class="posts">
+  <% @posts.each do |post| %>
+    <div class="post">
+      <strong>@<%= post.user ? post.user.name : "" %></strong><br />
+      <%= post.text %><br />
+      <%= post.created_at.getlocal.strftime("%Y-%m-%d %H:%M:%S") %>
+    </div>
+  <% end %>
+</div>
