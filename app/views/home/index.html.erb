@@ -1,9 +1,3 @@
-<style>
-  body {
-    padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-  }
-</style>
-
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
@@ -14,6 +8,13 @@
         <span class="icon-bar"></span>
       </a>
       <a class="brand" href="#">microblog-test</a>
+      <div class="nav-collapse">
+        <ul class="nav">
+
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="/users">ユーザ管理</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
     </div>
   </div>
 </div>
@@ -47,7 +48,7 @@
   <div class="posts">
     <% @posts.each do |post| %>
       <div class="post">
-        <strong><%= post.user ? post.user.name : "" %></strong><br />
+        <strong><%= post.user ? post.user.name : "(退会ユーザー)" %></strong><br />
         <%= post.text %><br />
         <div class="posted_time">
           <span class="posted_time"><%= post.created_at.getlocal.strftime("%Y-%m-%d %H:%M:%S") %></span>

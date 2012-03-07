@@ -13,6 +13,10 @@
  *= require bootstrap
 */
 
+body {
+  padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+}
+
 div.post {
   border-top: 1px solid #EEEEEE;
   padding-top: 10px;
@@ -25,4 +29,12 @@ div.posted_time {
 
 span.posted_time {
   color: #999999;
+}
+
+table.user_list {
+  width: 400px;
+}
+
+td.command {
+  width: 50px;
 }
