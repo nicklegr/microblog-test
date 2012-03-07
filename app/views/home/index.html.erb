@@ -20,6 +20,16 @@
 </div>
 
 <div class="container">
+  <% if alert && alert.any? %>
+    <div class="alert alert-error">
+      <ul>
+        <% alert.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <h2>いまなにしてる？</h2>
   <hr />
 
