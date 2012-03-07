@@ -61,7 +61,7 @@
         <strong><%= post.user ? post.user.name : "(退会ユーザー)" %></strong><br />
         <%= post.text %><br />
         <div class="posted_time">
-          <span class="posted_time"><%= post.created_at.getlocal.strftime("%Y-%m-%d %H:%M:%S") %></span>
+          <span class="posted_time"><%= post.created_at.strftime("%Y-%m-%d %H:%M:%S") %></span>
         </div>
       </div>
     <% end %>
